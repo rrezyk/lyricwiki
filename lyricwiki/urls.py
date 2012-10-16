@@ -16,6 +16,8 @@ urlpatterns = patterns("",
     url(r"^account/signup/$", SignupView.as_view(), name="account_signup"),
     url(r"^account/", include("account.urls")),
     url(r"^song/", include("project.songs.urls")),
+    url(r"^markitup/", include("markitup.urls")),
+    url(r"^", include("symposion.cms.urls")),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

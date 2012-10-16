@@ -115,6 +115,7 @@ WSGI_APPLICATION = "lyricwiki.wsgi.application"
 
 TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "templates"),
+    os.path.join(PROJECT_ROOT,"project/templates")
 ]
 
 INSTALLED_APPS = [
@@ -134,10 +135,16 @@ INSTALLED_APPS = [
     # external
     "account",
     "metron",
+    "debug_toolbar",
+    "markitup",
+    "reversion",
+    "taggit",
+    "sitetree",
     
     # project
     "lyricwiki.profiles",
     "project.songs",
+    "project.cms",
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -184,3 +191,13 @@ ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = False
 ACCOUNT_LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT_URL = "home"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    "INTERCEPT_REDIRECTS": False,
+}
+LYRICWIKI_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
+MARKITUP_FILTER = ("markdown.markdown", {"safe_mode": True})
+MARKITUP_SET = "markitup/sets/markdown"
+MARKITUP_SKIN = "markitup/skins/simple"
+
