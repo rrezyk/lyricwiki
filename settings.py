@@ -141,21 +141,9 @@ INSTALLED_APPS = [
     "taggit",
     "sitetree",
 
-    'south',
-    'sekizai',
-    'sorl.thumbnail',
-    'wiki',
-    'wiki.plugins.help',
-    'wiki.plugins.links',
-    'wiki.plugins.images',
-    'wiki.plugins.attachments',
-    'wiki.plugins.notifications',
-    'mptt',
-
-    'django_notify',
     # PACKAGE
     "profile",
-    #"songs",
+    "songs",
     "cms",
 ]
 
@@ -187,7 +175,11 @@ LOGGING = {
         },
     }
 }
-
+SONG_FORMS = {
+    "song": "songs.forms.SongForm",
+    "singer": "songs.forms.SingerForm",
+    "lyricist": "songs.forms.LyricistForm",
+}
 FIXTURE_DIRS = [
     os.path.join(PACKAGE_ROOT, "fixtures"),
 ]
@@ -212,4 +204,3 @@ LYRICWIKI_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 MARKITUP_FILTER = ("markdown.markdown", {"safe_mode": True})
 MARKITUP_SET = "markitup/sets/markdown"
 MARKITUP_SKIN = "markitup/skins/simple"
-WIKI_ANONYMOUS_WRITE = False
